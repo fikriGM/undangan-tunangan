@@ -15,7 +15,8 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fde6ef, #e8f2ff);
+      background: linear-gradient(135deg, #fffefe, #f8f8f8);
+      /* background-image: url("assets/background3.jpeg"); */
       color: #333;
     }
 
@@ -27,11 +28,10 @@
     }
 
     .card {
-      background-image: url("assets/background2.jpg");
+      background-image: url("assets/bg-card.jpeg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       border-radius: 20px;
       padding: 45px 28px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
@@ -39,38 +39,12 @@
       overflow: hidden;
     }
 
-    /* SOFT FLORAL DECOR */
-    .flower {
-      position: absolute;
-      width: 160px;
-      opacity: 0.18;
-    }
-
-    .flower.tl {
-      top: -40px;
-      left: -40px;
-    }
-
-    .flower.tr {
-      top: -40px;
-      right: -40px;
-    }
-
-    .flower.bl {
-      bottom: -40px;
-      left: -40px;
-    }
-
-    .flower.br {
-      bottom: -40px;
-      right: -40px;
-    }
-
     h1 {
       font-family: 'Playfair Display', serif;
       font-size: 34px;
       color: #000000;
       margin-bottom: 10px;
+      margin-top: 175px;
     }
 
     .divider {
@@ -84,21 +58,42 @@
     p {
       line-height: 1.9;
       font-size: 16px;
+      color: #000000;
     }
 
-    .name {
+    .name-cpw {
       font-family: 'Playfair Display', serif;
       font-size: 24px;
-      color: #7b8fd1;
-      margin: 12px 0 4px;
+      color: #f70964;
+      margin: 10px 0 4px;
+    }
+
+    .name-cpp {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #f70964;
+      margin: 10px 0 4px;
+    }
+
+    .breakdan {
+      margin: 5px;
     }
 
     .box {
-      background: #fff;
+      background: #ffffff7c;
       border-radius: 16px;
-      padding: 24px;
-      margin-top: 28px;
+      margin-left: 50px;
+      margin-right: 50px;
       box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    }
+
+    .pembukaan {
+      margin-left: 55px;
+      margin-right: 55px;
+    }
+
+    .name-ortu {
+      color: #f04e8c;
     }
 
     .maps-btn {
@@ -122,7 +117,91 @@
     footer {
       margin-top: 45px;
       font-size: 14px;
-      color: #666;
+      color: #000000;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background-image: url("assets/background3.jpeg");
+        color: #333;
+      }
+
+      h1 {
+        font-size: 26px;
+        color: #000000;
+        margin-bottom: 10px;
+        margin-top: 200px;
+      }
+
+      .name-cpw {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        color: #f70964;
+        margin: 10px 0 4px;
+      }
+
+      .name-cpp {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        color: #f70964;
+      }
+
+      .breakdan {
+        margin-top: 5px;
+        margin-bottom: -10px;
+      }
+
+      p {
+        font-size: 12px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .pembukaan {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+
+      .container {
+        margin: auto;
+        text-align: center;
+      }
+
+      .box {
+        background: #ffffff7c;
+        border-radius: 12px;
+        margin: auto;
+        margin-top: 10px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      }
+
+      .maps-btn {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 12px 26px;
+
+        background: linear-gradient(to right, #f7b2cd, #a9cfff);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 100;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .maps-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      }
+
+      footer {
+        margin-top: 45px;
+        font-size: 14px;
+        color: #000000;
+      }
+
     }
   </style>
 </head>
@@ -131,46 +210,25 @@
 
   <div class="container">
     <div class="card">
-
-      <!-- FLORAL SVG (SOFT & MANY) -->
-      <svg class="flower tl" viewBox="0 0 200 200">
-        <path fill="#f4b6ce"
-          d="M44,-65C58,-58,70,-44,73,-28C76,-12,70,6,62,22C54,38,44,52,29,60C14,68,-6,70,-23,66C-40,62,-54,52,-62,38C-70,24,-72,6,-68,-11C-64,-28,-54,-44,-40,-55C-26,-66,-9,-72,9,-70C27,-68,36,-72,44,-65Z" />
-      </svg>
-
-      <svg class="flower tr" viewBox="0 0 200 200">
-        <path fill="#a9cfff"
-          d="M38,-55C52,-48,66,-38,70,-24C74,-10,68,6,60,20C52,34,42,46,27,55C12,64,-7,70,-25,67C-43,64,-60,52,-68,36C-76,20,-74,0,-68,-16C-62,-32,-52,-44,-38,-52C-24,-60,-6,-64,10,-62C26,-60,36,-58,38,-55Z" />
-      </svg>
-
-      <svg class="flower bl" viewBox="0 0 200 200">
-        <path fill="#f7c3d8"
-          d="M34,-52C46,-44,60,-36,66,-22C72,-8,70,10,62,25C54,40,40,52,24,58C8,64,-10,64,-26,58C-42,52,-56,40,-64,24C-72,8,-74,-12,-66,-28C-58,-44,-40,-56,-22,-60C-4,-64,14,-60,34,-52Z" />
-      </svg>
-
-      <svg class="flower br" viewBox="0 0 200 200">
-        <path fill="#bcd9ff"
-          d="M36,-54C50,-46,64,-36,68,-22C72,-8,68,10,60,26C52,42,40,56,24,60C8,64,-12,62,-28,56C-44,50,-56,40,-64,24C-72,8,-74,-12,-66,-28C-58,-44,-40,-56,-22,-60C-4,-64,14,-60,36,-54Z" />
-      </svg>
-
       <h1>Undangan Tunangan</h1>
       <div class="divider"></div>
 
       <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
 
-      <p>
+      <p class="pembukaan">
         Dengan memohon rahmat dan ridho Allah SWT,
         kami bermaksud mengundang Bapak/Ibu/Saudara/i
         untuk menghadiri acara tunangan putra dan putri kami:
       </p>
 
-      <div class="name">Muhammad Fikri</div>
-      <p>Putra dari Bapak Mukhlis Ibrahim & Ibu Jumasri Bahar</p>
+      <div class="name-cpw">Bunga Safa Genita</div>
+      <p class="name-ortu">Putri dari Bapak Ramlan Sani & Ibu Genta Gutiningsih Zulkarnain</p>
 
-      <p style="margin:16px 0;">&</p>
+      <p class="breakdan">&</p>
+      <div class="name-cpp">Muhammad Fikri</div>
+      <p class="name-ortu">Putra dari Bapak Mukhlis Ibrahim & Ibu Jumasri Bahar</p>
 
-      <div class="name">Bunga Safa Genita</div>
-      <p>Putri dari Bapak Ramlan Sani & Ibu Genta Gutiningsih Zulkarnain</p>
+
 
       <div class="box">
         <p>
@@ -190,19 +248,23 @@
         <a class="maps-btn" href="https://maps.app.goo.gl/JtF6K5LzcgoHVbTi8?g_st=ipc" target="_blank">
           📍 Buka Google Maps
         </a>
+
+        <p>
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami
+          apabila Bapak/Ibu/Saudara/i berkenan hadir
+          serta memberikan doa restu.
+        </p>
+
+        <footer>
+          Wassalamu’alaikum Warahmatullahi Wabarakatuh<br /><br />
+          Hormat kami,<br />
+          Keluarga Besar Kedua Mempelai
+        </footer>
+
       </div>
 
-      <p>
-        Merupakan suatu kehormatan dan kebahagiaan bagi kami
-        apabila Bapak/Ibu/Saudara/i berkenan hadir
-        serta memberikan doa restu.
-      </p>
 
-      <footer>
-        Wassalamu’alaikum Warahmatullahi Wabarakatuh<br /><br />
-        Hormat kami,<br />
-        Keluarga Besar Kedua Mempelai
-      </footer>
+
 
     </div>
   </div>
