@@ -3,276 +3,376 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undangan Tunangan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Undangan Tunangan – Bunga & Fikri</title>
 
-  <!-- Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500&display=swap"
     rel="stylesheet">
 
   <style>
-    body {
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --rose: #921053;
+      --rose-soft: #ac1362;
+      --gold: #b8860b;
+      --cream: #fff8f5;
+      --glass: rgba(255, 255, 255, 0.164);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.281);
+    }
+
+    /* ── BODY / BACKGROUND ─────────────────────── */
+    html,
+    body {
+      min-height: 100%;
+      width: 100%;
+    }
+
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fffefe, #f8f8f8);
-      /* background-image: url("assets/background3.jpeg"); */
-      color: #333;
-    }
+      font-weight: 300;
+      color: #181818;
 
-    .container {
-      max-width: 760px;
-      margin: auto;
-      padding: 50px 20px;
-      text-align: center;
-    }
+      /* Fallback gradient jika gambar belum load */
+      background: linear-gradient(160deg, #7b1040 0%, #c0406e 40%, #f9c4d8 100%);
 
-    .card {
+      /* Background image – ganti path sesuai lokasi file kamu */
       background-image: url("assets/bg-card.jpeg");
       background-size: cover;
-      background-position: center;
+      background-position: center top;
       background-repeat: no-repeat;
-      border-radius: 20px;
-      padding: 45px 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      position: relative;
-      overflow: hidden;
+      background-attachment: fixed;
+      /* smooth scroll di desktop */
     }
 
+    /* iOS Safari fix: fixed attachment tidak berfungsi di iOS */
+    @supports (-webkit-touch-callout: none) {
+      body {
+        background-attachment: scroll;
+      }
+    }
+
+    /* ── CONTAINER ─────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      /* lebar kartu maks di desktop */
+      margin: 0 auto;
+      padding: 0;
+      /* konten dimulai dari top */
+      min-height: 100vh;
+    }
+
+    /* ── HERO SPACER (ruang kosong di atas agar ilustrasi kelihatan) */
+    .hero-space {
+      height: clamp(220px, 45vw, 340px);
+    }
+
+    /* ── CONTENT CARD ──────────────────────────── */
+    .card {
+      -webkit-backdrop-filter: blur(1px) saturate(1);
+      backdrop-filter: blur(1px) saturate(1);
+      border-radius: 28px 28px 0 0;
+      padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px) 48px;
+
+    }
+
+    /* ── BISMILLAH / SALAM ─────────────────────── */
+    .salam {
+      font-size: clamp(11px, 3vw, 14px);
+      text-align: center;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    /* ── JUDUL ─────────────────────────────────── */
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 34px;
-      color: #000000;
-      margin-bottom: 10px;
-      margin-top: 175px;
+      font-size: clamp(26px, 7vw, 36px);
+      color: #1a1a1a;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 6px;
     }
 
+    /* ── DIVIDER ───────────────────────────────── */
     .divider {
-      width: 90px;
-      height: 3px;
+      width: 70px;
+      height: 2.5px;
       background: linear-gradient(to right, #f7b2cd, #a9cfff);
-      margin: 22px auto;
       border-radius: 3px;
+      margin: 14px auto 20px;
     }
 
-    p {
-      line-height: 1.9;
-      font-size: 16px;
-      color: #000000;
-    }
-
-    .name-cpw {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      color: #f70964;
-      margin: 10px 0 4px;
-    }
-
-    .name-cpp {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      color: #f70964;
-      margin: 10px 0 4px;
-    }
-
-    .breakdan {
-      margin: 5px;
-    }
-
-    .box {
-      background: #ffffff7c;
-      border-radius: 16px;
-      margin-left: 50px;
-      margin-right: 50px;
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-    }
-
+    /* ── TEKS PEMBUKAAN ────────────────────────── */
     .pembukaan {
-      margin-left: 55px;
-      margin-right: 55px;
+      font-size: clamp(12px, 3.2vw, 15px);
+      line-height: 1.85;
+      text-align: center;
+      color: #181818;
+      margin-bottom: 22px;
     }
 
-    .name-ortu {
-      color: #f04e8c;
+    /* ── NAMA PASANGAN ─────────────────────────── */
+    .couple-block {
+      text-align: center;
+      margin: 16px 0;
     }
 
+    .name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 5.5vw, 26px);
+      color: var(--rose);
+      line-height: 1.2;
+    }
+
+    .ortu {
+      font-size: clamp(12px, 3vw, 13px);
+      color: var(--rose-soft);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .dan {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(22px, 6vw, 30px);
+      color: var(--gold);
+      margin: 10px 0;
+    }
+
+    /* ── INFO BOX ──────────────────────────────── */
+    .info-box {
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 18px;
+      padding: clamp(18px, 5vw, 28px) clamp(16px, 5vw, 28px);
+      margin-top: 22px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .info-row:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    .info-text {
+      font-size: clamp(12px, 3.2vw, 14px);
+      line-height: 1.7;
+      color: #2a2a2a;
+    }
+
+    .info-text strong {
+      display: block;
+      font-weight: 500;
+      color: #1a1a1a;
+    }
+
+    /* ── MAPS BUTTON ───────────────────────────── */
     .maps-btn {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 26px;
-      border-radius: 30px;
-      background: linear-gradient(to right, #f7b2cd, #a9cfff);
+      display: block;
+      margin: 22px auto 0;
+      width: fit-content;
+      padding: 13px 30px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #f7b2cd, #a9cfff);
       color: #fff;
       text-decoration: none;
+      font-size: clamp(13px, 3.5vw, 15px);
       font-weight: 500;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      letter-spacing: 0.03em;
+      box-shadow: 0 6px 20px rgba(247, 178, 205, 0.55);
+      transition: transform 0.2s, box-shadow 0.2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .maps-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    .maps-btn:active {
+      transform: scale(0.97);
     }
 
+    /* ── CLOSING ───────────────────────────────── */
+    .closing {
+      font-size: clamp(12px, 3.2vw, 14px);
+      line-height: 1.85;
+      text-align: center;
+      color: #181818;
+      margin-top: 22px;
+    }
+
+    /* ── FOOTER ────────────────────────────────── */
     footer {
-      margin-top: 45px;
-      font-size: 14px;
-      color: #000000;
+      text-align: center;
+      margin-top: 28px;
+      font-size: clamp(11px, 3vw, 13px);
+      color: #181818;
+      line-height: 1.8;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+      /* notch/home bar */
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 480px) {
+    footer .ttd {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(13px, 3.5vw, 15px);
+      color: #1a1a1a;
+      margin-top: 6px;
+    }
+
+    /* ── DESKTOP: tampilkan seperti preview card ─ */
+    @media (min-width: 481px) {
       body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background-image: url("assets/background3.jpeg");
-        color: #333;
-      }
-
-      h1 {
-        font-size: 26px;
-        color: #000000;
-        margin-bottom: 10px;
-        margin-top: 200px;
-      }
-
-      .name-cpw {
-        font-family: 'Playfair Display', serif;
-        font-size: 24px;
-        color: #f70964;
-        margin: 10px 0 4px;
-      }
-
-      .name-cpp {
-        font-family: 'Playfair Display', serif;
-        font-size: 24px;
-        color: #f70964;
-      }
-
-      .breakdan {
-        margin-top: 5px;
-        margin-bottom: -10px;
-      }
-
-      p {
-        font-size: 12px;
-        margin: auto;
-        text-align: center;
-      }
-
-      .pembukaan {
-        margin-left: 25px;
-        margin-right: 25px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 40px 20px 60px;
       }
 
       .container {
-        margin: auto;
-        text-align: center;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        /* Di desktop, background image ditempel ke container */
+        background-image: url("assets/bg-card.jpeg");
+        background-size: cover;
+        background-position: center top;
       }
 
-      .box {
-        background: #ffffff7c;
-        border-radius: 12px;
-        margin: auto;
-        margin-top: 10px;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+      body {
+        background-image: none;
+        background: linear-gradient(160deg, #7b1040 0%, #c0406e 40%, #f9c4d8 100%);
       }
 
-      .maps-btn {
-        display: inline-block;
-        margin-top: 18px;
-        padding: 12px 26px;
+      .card {
+        -webkit-backdrop-filter: blur(1px) saturate(1);
+        backdrop-filter: blur(1px) saturate(1);
+        border-radius: 28px 28px 0 0;
+        padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px) 48px;
+        /* border: 1.5px solid rgba(255,255,255,0.55); */
+        /* border-bottom: none; */
+        /* box-shadow: var(--shadow); */
+      }
+    }
 
-        background: linear-gradient(to right, #f7b2cd, #a9cfff);
-        color: #fff;
-        text-decoration: none;
-        font-weight: 100;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    @media (max-width: 480px) {
+      .card {
+        background: var(--glass);
+        -webkit-backdrop-filter: blur(1px) saturate(1);
+        backdrop-filter: blur(1px) saturate(1);
+        border-radius: 28px 28px 0 0;
+        padding: clamp(28px, 6vw, 48px) clamp(20px, 6vw, 40px) 48px;
       }
 
-      .maps-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-      }
-
-      footer {
-        margin-top: 45px;
-        font-size: 14px;
-        color: #000000;
-      }
-
+      
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
+
+    <!-- Ruang untuk ilustrasi pasangan di gambar background -->
+    <div class="hero-space"></div>
+
+    <!-- Konten utama -->
     <div class="card">
+
+      <p class="salam">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْم</p>
+
       <h1>Undangan Tunangan</h1>
       <div class="divider"></div>
 
-      <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
-
       <p class="pembukaan">
+        Assalamu'alaikum Warahmatullahi Wabarakatuh<br><br>
         Dengan memohon rahmat dan ridho Allah SWT,
         kami bermaksud mengundang Bapak/Ibu/Saudara/i
-        untuk menghadiri acara tunangan putra dan putri kami:
+        untuk menghadiri acara tunangan putra-putri kami:
       </p>
 
-      <div class="name-cpw">Bunga Safa Genita</div>
-      <p class="name-ortu">Putri dari Bapak Ramlan Sani & Ibu Genta Gutiningsih Zulkarnain</p>
+      <!-- Pasangan -->
+      <div class="couple-block">
+        <div class="name">Bunga Safa Genita</div>
+        <p class="ortu">Putri dari Bapak Ramlan Sani<br>&amp; Ibu Genta Gutiningsih Zulkarnain</p>
 
-      <p class="breakdan">&</p>
-      <div class="name-cpp">Muhammad Fikri</div>
-      <p class="name-ortu">Putra dari Bapak Mukhlis Ibrahim & Ibu Jumasri Bahar</p>
+        <div class="dan">&amp;</div>
 
-
-      <div class="box">
-        <br />
-        <p>
-          🗓 <strong>Hari / Tanggal</strong><br />
-          Sabtu, 30 Mei 2026
-        </p>
-        <p>
-          🕘 <strong>Waktu</strong><br />
-          10.00 s/d 13:00 WIB
-        </p>
-        <p>
-          📍 <strong>Tempat</strong><br />
-          Restaurant Sindang Reret Bandung
-        </p>
-        <p>
-          📍 <strong>Alamat</strong><br />
-          Jl. Surapati No.53, Sadang Serang, Kecamatan Coblong, Kota Bandung, Jawa Barat 40133
-        </p>
-        <br />
-        <!-- GOOGLE MAPS BUTTON -->
-        <a class="maps-btn" href="https://maps.app.goo.gl/JtF6K5LzcgoHVbTi8?g_st=ipc" target="_blank">
-          📍 Buka Google Maps
-        </a>
-        <br />
-        <p>
-          Merupakan suatu kehormatan dan kebahagiaan bagi kami
-          apabila Bapak/Ibu/Saudara/i berkenan hadir
-          serta memberikan doa restu.
-        </p>
-
-        <footer>
-          Wassalamu’alaikum Warahmatullahi Wabarakatuh<br /><br />
-          Hormat kami,<br />
-          Keluarga Besar Kedua Mempelai
-        </footer>
-
+        <div class="name">Muhammad Fikri</div>
+        <p class="ortu">Putra dari Bapak Mukhlis Ibrahim<br>&amp; Ibu Jumasri Bahar</p>
       </div>
 
+      <!-- Info acara -->
+      <div class="info-box">
+        <div class="info-row">
+          <span class="info-icon">🗓</span>
+          <div class="info-text">
+            <strong>Hari / Tanggal</strong>
+            Sabtu, 30 Mei 2026
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">🕘</span>
+          <div class="info-text">
+            <strong>Waktu</strong>
+            10.00 – 13.00 WIB
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">🏛️</span>
+          <div class="info-text">
+            <strong>Tempat</strong>
+            Restaurant Sindang Reret Bandung
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📍</span>
+          <div class="info-text">
+            <strong>Alamat</strong>
+            Jl. Surapati No.53, Sadang Serang,<br>
+            Kecamatan Coblong, Kota Bandung,<br>
+            Jawa Barat 40133
+          </div>
+        </div>
 
+        <a class="maps-btn" href="https://maps.app.goo.gl/JtF6K5LzcgoHVbTi8?g_st=ipc" target="_blank" rel="noopener">
+          📍 Buka Google Maps
+        </a>
+      </div>
 
+      <!-- Closing -->
+      <p class="closing">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami
+        apabila Bapak/Ibu/Saudara/i berkenan hadir
+        serta memberikan doa restu.
+      </p>
 
-    </div>
-  </div>
+      <footer>
+        Wassalamu'alaikum Warahmatullahi Wabarakatuh
+        <div class="ttd">
+          Hormat kami,<br>
+          Keluarga Besar Kedua Mempelai
+        </div>
+      </footer>
 
+    </div><!-- /card -->
+  </div><!-- /container -->
 </body>
 
 </html>
